@@ -9,3 +9,5 @@
 
 * ruby main.rb
 
+* rspec spec --f doc
+
