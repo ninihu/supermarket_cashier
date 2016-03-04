@@ -1,4 +1,4 @@
-require './product.rb'
+
 class Buy
   attr_accessor :product, :market, :number#, :total
 
@@ -24,7 +24,12 @@ class Buy
     (@number / 3).to_i
   end
   
-  #买二赠1活动的商品数量
+  #买二赠1
+  def three_for_two
+    (@number / 3).to_i
+  end
+  
+  #买二赠1活动后的商品数量
   def number_of_three_for_two
     three_for_two * 2 + @number % 3
   end

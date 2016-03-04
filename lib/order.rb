@@ -1,6 +1,4 @@
 #encoding: utf-8
-require './market.rb'
-require './buy.rb'
 class Order
   #超市，购买的货物
   attr_reader :buys, :market
@@ -65,6 +63,10 @@ class Order
 
   def three_for_two_buys
     @buys.select{|buy| buy.product.three_for_two?}
+  end
+  
+  def total_num
+    @buys.collect(&:number).reduce(:+)
   end
 
 

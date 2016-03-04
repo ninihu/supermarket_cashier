@@ -1,9 +1,6 @@
-require './product.rb'
-require './buy.rb'
-require './market.rb'
-require './order.rb'
+require File.dirname(__FILE__) +'/shop'
 #初始化商城商品
-market = Market.new.init_products
+market = Market.new("supermarket").init_products
 
 # products = market.products
 #设置商品的优惠活动

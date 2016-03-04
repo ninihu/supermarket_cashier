@@ -1,13 +1,13 @@
 #encoding: utf-8
-require './product.rb'
 #超市
 class Market
 
   #超市名,超市商品
   attr_reader :products, :name
-  # def initialize(products = [])
-  #   @products = products
-  # end
+  def initialize(name, products = [])
+    @name = name
+    @products = products
+  end
 
   def init_products
     @name = '有钱赚01店'
@@ -25,17 +25,20 @@ class Market
   #设置商品为折扣商品,
   def set_discount(barcode)
     product = find_product(barcode)
-    product && product.set_discount
+    product.set_discount
+    return product
   end
 
   def set_three_for_two(barcode)
     product = find_product(barcode)
-    product && product.set_three_for_two
+    product.set_three_for_two
+    return product
   end
 
   #查找商品
   def find_product(barcode)
-    @products.find{|p| p.barcode == barcode}
+    product = @products.find{|p| p.barcode == barcode}
+    product || (raise ProductNotFoundException)
   end
   #TODO 添加商品(条形码唯一)，删除商品
 end
